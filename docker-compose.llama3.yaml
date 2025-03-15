@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  # OpenAI-compatible API server for Llama3-OpenBioLLM-70B
+  llama3-server:
+    image: python:3.11
+    working_dir: /app
+    volumes:
+      - ./serve_llama3.py:/app/serve_llama3.py
+    ports:
+      - "8000:8000"
+    command: >
+      bash -c "pip install transformers torch fastapi uvicorn pydantic accelerate bitsandbytes && python serve_llama3.py"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # Open WebUI frontend
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    volumes:
+      - open-webui:/app/backend/data
+    ports:
+      - "3000:8080"
+    environment:
+      - 'OPENAI_API_BASE_URL=http://llama3-server:8000'
+      - 'OPENAI_API_KEY=dummy-key'
+      - 'WEBUI_SECRET_KEY='
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+    depends_on:
+      - llama3-server
+
+volumes:
+  open-webui: {} 
