@@ -1,0 +1,98 @@
+Product Requirements Document (PRD)
+
+Overview
+
+This product is an AI-driven interview platform designed to automate and enhance the evaluation of candidates in domain-specific roles (e.g., dentistry, DevOps). It addresses challenges in conducting consistent, in-depth, and fair assessments by leveraging Open WebUI, LLaMA models through Ollama, and Retrieval-Augmented Generation (RAG). The platform dynamically retrieves domain-specific knowledge, generates adaptive interview questions, and provides structured, detailed feedback through AI scoring.
+
+Core Features
+
+Adaptive Domain-Specific Interviews
+	•	Function: Dynamically generates and adjusts questions based on real-time candidate responses.
+	•	Importance: Ensures comprehensive assessment and deeper insights into candidate proficiency.
+	•	High-Level Workflow: Utilizes RAG to fetch relevant domain-specific context from embedded documents to tailor follow-up questions adaptively.
+
+Retrieval-Augmented Generation (RAG)
+	•	Function: Provides the LLM with real-time domain-specific knowledge from a vector database.
+	•	Importance: Enables accuracy without resource-intensive fine-tuning; maintains up-to-date, precise knowledge.
+	•	High-Level Workflow: Documents are embedded and indexed; relevant content is dynamically retrieved during the interview.
+
+LLM-Based Grading
+	•	Function: Automatically evaluates candidate responses against predefined weighted criteria and generates detailed feedback.
+	•	Importance: Ensures consistency, fairness, and scalability of candidate assessments.
+	•	High-Level Workflow: Post-interview transcript analysis by the LLM, using clear rubrics to generate numerical scores and written feedback.
+
+User Experience
+
+User Personas
+	•	Interview Candidates: Individuals seeking roles in specialized domains.
+	•	Interviewers/Evaluators: Professionals managing candidate evaluations and feedback.
+
+Key User Flows
+	•	Candidates engage in conversational interviews through a simple chat interface.
+	•	Evaluators initiate interviews, review adaptive questioning, scoring, and receive structured feedback reports.
+
+UI/UX Considerations
+	•	Clean, intuitive chat interface from Open WebUI.
+	•	Transparent visualization of scoring categories, scores, and detailed feedback.
+
+Technical Architecture
+
+System Components
+	•	Frontend: Open WebUI for interactive user chat interface.
+	•	Backend: Ollama hosting LLaMA model, integrated RAG module for knowledge retrieval.
+	•	Vector Database: ChromaDB/Qdrant storing embeddings.
+
+Data Models
+	•	Interview Data Model: Stores conversation transcripts.
+	•	Embedding Model: Domain-specific document embeddings.
+	•	Evaluation Data Model: Structured scores and feedback per category.
+
+APIs and Integrations
+	•	Ollama API integration for LLM.
+	•	Vector database APIs for RAG.
+
+Infrastructure Requirements
+	•	Local GPU-enabled server to run Ollama and LLaMA.
+	•	Dockerized deployments for scalability and ease of use.
+
+Development Roadmap
+
+MVP Requirements
+	•	Set up Open WebUI, Ollama, and vector DB integration.
+	•	Implement basic RAG-based adaptive interview flow.
+	•	Establish initial scoring rubric and AI scoring mechanism.
+	•	Provide basic scoring report and feedback output.
+
+Future Enhancements
+	•	Advanced adaptive questioning logic.
+	•	Enhanced user analytics and reporting dashboards.
+	•	Multi-domain support and seamless switching.
+	•	Expanded integrations with external APIs for enhanced functionality.
+
+Logical Dependency Chain
+	1.	Setup and configuration of Open WebUI and Ollama.
+	2.	Implementation of vector database integration (RAG).
+	3.	Basic adaptive interview prompt engineering.
+	4.	Implementation of conversation history storage.
+	5.	Initial LLM scoring mechanism.
+	6.	Frontend display for interview scoring and feedback.
+	7.	Iterative refinement based on initial user testing and feedback.
+
+Risks and Mitigations
+	•	Technical Challenges: Embedding quality and retrieval accuracy.
+	•	Mitigation: Initial embedding quality testing; adaptive tuning based on feedback.
+	•	MVP Definition: Risk of scope creep.
+	•	Mitigation: Clearly defined MVP scope limited to essential functionality.
+	•	Resource Constraints: Limited GPU resources for local deployments.
+	•	Mitigation: Optimized embeddings, leveraging quantized models, or cloud-based GPU instances if needed.
+
+Appendix
+
+Research Findings
+	•	Retrieval-Augmented Generation provides efficient, scalable domain knowledge without fine-tuning.
+	•	LLM-based grading can closely mimic expert human evaluators when structured prompts and rubrics are used.
+
+Technical Specifications
+	•	Recommended vector databases: Weaviate
+	•	Recommended embedding models: SentenceTransformers MiniLM.
+	•	Recommended LLM: openbiollm-8b, quantized via Ollama.

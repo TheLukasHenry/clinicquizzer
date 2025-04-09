@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "generatedAt": "2025-04-09T19:41:04.588Z",
+    "tasksAnalyzed": 10,
+    "thresholdScore": 5,
+    "projectName": "Your Project Name",
+    "usedResearch": false
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Setup Open WebUI and Ollama",
+      "complexityScore": 4,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the Open WebUI and Ollama setup into detailed technical steps, focusing on Docker installation, model configuration, and system integration validation.",
+      "reasoning": "This task involves standard installation and configuration procedures with clear steps already outlined. The Docker setup and model configuration require technical knowledge but follow established patterns. The complexity is moderate due to integration between multiple components."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Implement Vector Database Integration",
+      "complexityScore": 7,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Detail the specific technical steps for Weaviate vector database implementation, focusing on schema design, embedding model integration, API development, and performance optimization.",
+      "reasoning": "This task requires specialized knowledge of vector databases and embedding models. The integration with existing systems adds complexity, and the need for API endpoints and test harnesses increases the technical scope. Schema design for domain-specific knowledge requires careful planning."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Develop Document Ingestion Pipeline",
+      "complexityScore": 8,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Create detailed subtasks for building a document processing pipeline, covering parsing different formats, implementing chunking algorithms, metadata extraction, and batch processing with error handling.",
+      "reasoning": "This task involves complex document processing across multiple formats, requiring specialized parsing, chunking strategies, and metadata extraction. The batch processing and duplicate detection add significant complexity. The UI component adds another dimension of work requiring different skills."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Implement Basic RAG-Based Interview Flow",
+      "complexityScore": 9,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the RAG implementation into detailed steps covering prompt engineering, retrieval mechanisms, context window management, and integration with the LLM response generation.",
+      "reasoning": "This is a core technical task requiring deep understanding of RAG architecture and LLM integration. Context window management and incorporating retrieved content into prompts require sophisticated prompt engineering. The caching and logging components add technical complexity."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Develop Adaptive Questioning Logic",
+      "complexityScore": 8,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the implementation steps for creating an adaptive questioning system, including conversation analysis algorithms, knowledge gap identification, and question generation strategies.",
+      "reasoning": "This task involves advanced prompt engineering and NLP techniques to analyze responses and generate contextually appropriate follow-up questions. The difficulty adjustment and fallback strategies require complex decision logic. This is highly sophisticated LLM orchestration work."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Implement Conversation History Storage",
+      "complexityScore": 5,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the conversation history system implementation focusing on database schema design, real-time data persistence, and conversation retrieval/export functionality.",
+      "reasoning": "This task involves standard database operations and API development. While not extremely complex technically, it requires careful design for efficiency and reliability. The resume functionality adds some complexity but follows established patterns in conversation management."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Develop LLM Scoring Mechanism",
+      "complexityScore": 9,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Detail the implementation steps for creating an AI-based evaluation system, including rubric design, prompt engineering for evaluation, normalization algorithms, and confidence scoring.",
+      "reasoning": "This task requires sophisticated prompt engineering to enable reliable LLM-based evaluation. The scoring system with weighted criteria, normalization, and confidence scores involves complex algorithmic work. The feedback generation mechanism adds another layer of LLM orchestration complexity."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Implement Frontend for Interview and Scoring Display",
+      "complexityScore": 7,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the frontend implementation into detailed UI components, focusing on real-time data visualization, responsive design, and user authentication integration.",
+      "reasoning": "This task involves significant frontend development with real-time data visualization and complex UI components. The authentication system and role-based access control add security considerations. The responsive design requirement increases the implementation complexity."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Containerize the Application",
+      "complexityScore": 6,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Detail the containerization process focusing on Dockerfile creation, Docker Compose configuration, environment management, and deployment optimization.",
+      "reasoning": "While containerization follows established patterns, this task involves multiple components with different requirements. The optimization, monitoring, and backup procedures add complexity beyond basic containerization. The dependencies on multiple other components increase coordination requirements."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Conduct System Testing and Optimization",
+      "complexityScore": 8,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the testing and optimization process into specific test scenarios, performance benchmarking methodologies, security testing procedures, and documentation requirements.",
+      "reasoning": "This task requires comprehensive testing across multiple domains with different testing methodologies. The performance optimization of RAG retrieval and LLM response time involves sophisticated technical work. Security testing and documentation add significant scope to an already broad task."
+    }
+  ]
+}
