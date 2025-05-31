@@ -1,0 +1,17 @@
+# Task ID: 8
+# Title: Create Custom Pipe Function for Open WebUI
+# Status: pending
+# Dependencies: 5, 6, 7
+# Priority: medium
+# Description: Develop and integrate the custom Pipe Function that handles the interview logic within Open WebUI.
+# Details:
+1. Create Pipe Function structure compatible with Open WebUI
+2. Implement interview flow control logic
+3. Integrate RAG capabilities within the function
+4. Add scoring logic to the pipeline
+5. Implement session management
+6. Handle error cases and edge conditions
+7. Optimize for performance
+
+# Test Strategy:
+Test the Pipe Function with various user inputs, verifying correct flow control, question generation, and scoring. Ensure it properly integrates with Open WebUI.

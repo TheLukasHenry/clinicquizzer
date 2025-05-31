@@ -1,0 +1,16 @@
+# Task ID: 6
+# Title: Develop Interview Session Model and Flow
+# Status: pending
+# Dependencies: 4, 5
+# Priority: high
+# Description: Create the core adaptive questioning flow with 5 questions per interview.
+# Details:
+1. Design interview session data model to track conversation state
+2. Implement initial question generation based on selected topic
+3. Develop adaptive follow-up question generation based on previous responses
+4. Create session persistence to allow resuming interviews
+5. Implement the 5-question interview structure
+6. Add session metadata (timestamps, completion status, etc.)
+
+# Test Strategy:
+Conduct complete interview sessions and verify that questions adapt appropriately based on previous answers. Test session persistence by interrupting and resuming interviews.

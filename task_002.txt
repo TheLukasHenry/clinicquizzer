@@ -1,0 +1,16 @@
+# Task ID: 2
+# Title: Implement ChromaDB Vector Database Integration
+# Status: done
+# Dependencies: 1
+# Priority: high
+# Description: Set up ChromaDB with SQLite backend for document storage and vector embeddings.
+# Details:
+1. Install ChromaDB with SQLite backend
+2. Create database schema for storing document collections
+3. Configure the sentence-transformers/all-MiniLM-L6-v2 embedding model
+4. Implement document storage functions with size limits (20MB per file, 100MB total)
+5. Create API endpoints for database operations
+6. Implement error handling for database operations
+
+# Test Strategy:
+Test document storage, retrieval, and embedding generation with sample clinical documents. Verify size limits are enforced and embeddings are correctly generated.

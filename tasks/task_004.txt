@@ -1,0 +1,16 @@
+# Task ID: 4
+# Title: Create Competency Framework Model
+# Status: pending
+# Dependencies: 2
+# Priority: medium
+# Description: Implement the data model for the 10 clinical competencies with weights and descriptions.
+# Details:
+1. Define the schema for competency objects (id, name, description, weight)
+2. Create the 10 clinical competencies based on standard medical education frameworks
+3. Implement storage in the database
+4. Create admin interface for viewing and potentially customizing competencies
+5. Develop competency weighting system
+6. Ensure competencies are accessible to the scoring system
+
+# Test Strategy:
+Verify that all 10 competencies are correctly stored and can be retrieved. Test the weighting system to ensure it properly influences the scoring calculations.

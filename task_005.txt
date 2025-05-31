@@ -1,0 +1,16 @@
+# Task ID: 5
+# Title: Implement RAG for Domain Knowledge Retrieval
+# Status: done
+# Dependencies: 2, 3
+# Priority: high
+# Description: Develop retrieval-augmented generation capabilities to inform question generation and answer evaluation.
+# Details:
+1. Implement vector similarity search using ChromaDB
+2. Create prompt templates that incorporate retrieved context
+3. Develop relevance filtering for retrieved documents
+4. Implement caching for frequently accessed knowledge
+5. Create fallback strategies when relevant documents aren't found
+6. Optimize retrieval for clinical terminology and concepts
+
+# Test Strategy:
+Test retrieval with clinical queries and verify >90% of retrieved documents are relevant to the question context. Measure retrieval latency and optimize if needed.

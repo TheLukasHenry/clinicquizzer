@@ -1,0 +1,16 @@
+# Task ID: 7
+# Title: Implement Real-Time Competency Scoring
+# Status: pending
+# Dependencies: 4, 6
+# Priority: high
+# Description: Create LLM-based evaluation system that scores responses against predefined competencies on a 0-10 scale.
+# Details:
+1. Design prompt templates for LLM-based scoring against competencies
+2. Implement scoring logic for each answer on 0-10 scale
+3. Create weighted aggregation of scores across competencies
+4. Store scoring data with interview responses
+5. Implement calibration mechanisms to ensure scoring consistency
+6. Add confidence metrics for scores generated
+
+# Test Strategy:
+Compare LLM-generated scores with expert human evaluations on sample responses to verify >85% agreement. Test scoring consistency across similar responses.

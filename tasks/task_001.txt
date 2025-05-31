@@ -1,0 +1,16 @@
+# Task ID: 1
+# Title: Setup Open WebUI with Ollama and OpenBioLLM
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Fork and configure Open WebUI to integrate with Ollama for running the OpenBioLLM model locally.
+# Details:
+1. Fork the Open WebUI repository
+2. Configure Docker setup for local development
+3. Install Ollama and download the OpenBioLLM (8B parameter) model
+4. Set up the connection between Open WebUI and Ollama
+5. Test basic chat functionality with the OpenBioLLM model
+6. Configure necessary environment variables for development
+
+# Test Strategy:
+Verify that Open WebUI successfully connects to Ollama and can generate responses using the OpenBioLLM model with a simple prompt test.

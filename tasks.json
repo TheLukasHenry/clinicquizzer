@@ -1,0 +1,134 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Setup Open WebUI with Ollama and OpenBioLLM",
+      "description": "Fork and configure Open WebUI to integrate with Ollama for running the OpenBioLLM model locally.",
+      "status": "done",
+      "dependencies": [],
+      "priority": "high",
+      "details": "1. Fork the Open WebUI repository\n2. Configure Docker setup for local development\n3. Install Ollama and download the OpenBioLLM (8B parameter) model\n4. Set up the connection between Open WebUI and Ollama\n5. Test basic chat functionality with the OpenBioLLM model\n6. Configure necessary environment variables for development",
+      "testStrategy": "Verify that Open WebUI successfully connects to Ollama and can generate responses using the OpenBioLLM model with a simple prompt test."
+    },
+    {
+      "id": 2,
+      "title": "Implement ChromaDB Vector Database Integration",
+      "description": "Set up ChromaDB with SQLite backend for document storage and vector embeddings.",
+      "status": "done",
+      "dependencies": [
+        1
+      ],
+      "priority": "high",
+      "details": "1. Install ChromaDB with SQLite backend\n2. Create database schema for storing document collections\n3. Configure the sentence-transformers/all-MiniLM-L6-v2 embedding model\n4. Implement document storage functions with size limits (20MB per file, 100MB total)\n5. Create API endpoints for database operations\n6. Implement error handling for database operations",
+      "testStrategy": "Test document storage, retrieval, and embedding generation with sample clinical documents. Verify size limits are enforced and embeddings are correctly generated."
+    },
+    {
+      "id": 3,
+      "title": "Develop Document Processing Pipeline",
+      "description": "Create functionality for uploading, chunking, and embedding clinical documents into the knowledge base.",
+      "status": "done",
+      "dependencies": [
+        2
+      ],
+      "priority": "high",
+      "details": "1. Implement document upload interface\n2. Create document chunking logic (consider optimal chunk size for RAG)\n3. Process documents through the embedding pipeline\n4. Store chunks and embeddings in ChromaDB\n5. Implement document management features (list, delete, update)\n6. Add validation for document types and formats",
+      "testStrategy": "Upload various clinical document formats and verify proper chunking, embedding, and storage. Test with documents of different sizes up to the 20MB limit."
+    },
+    {
+      "id": 4,
+      "title": "Create Competency Framework Model",
+      "description": "Implement the data model for the 10 clinical competencies with weights and descriptions.",
+      "status": "pending",
+      "dependencies": [
+        2
+      ],
+      "priority": "medium",
+      "details": "1. Define the schema for competency objects (id, name, description, weight)\n2. Create the 10 clinical competencies based on standard medical education frameworks\n3. Implement storage in the database\n4. Create admin interface for viewing and potentially customizing competencies\n5. Develop competency weighting system\n6. Ensure competencies are accessible to the scoring system",
+      "testStrategy": "Verify that all 10 competencies are correctly stored and can be retrieved. Test the weighting system to ensure it properly influences the scoring calculations."
+    },
+    {
+      "id": 5,
+      "title": "Implement RAG for Domain Knowledge Retrieval",
+      "description": "Develop retrieval-augmented generation capabilities to inform question generation and answer evaluation.",
+      "status": "done",
+      "dependencies": [
+        2,
+        3
+      ],
+      "priority": "high",
+      "details": "1. Implement vector similarity search using ChromaDB\n2. Create prompt templates that incorporate retrieved context\n3. Develop relevance filtering for retrieved documents\n4. Implement caching for frequently accessed knowledge\n5. Create fallback strategies when relevant documents aren't found\n6. Optimize retrieval for clinical terminology and concepts",
+      "testStrategy": "Test retrieval with clinical queries and verify >90% of retrieved documents are relevant to the question context. Measure retrieval latency and optimize if needed."
+    },
+    {
+      "id": 6,
+      "title": "Develop Interview Session Model and Flow",
+      "description": "Create the core adaptive questioning flow with 5 questions per interview.",
+      "status": "pending",
+      "dependencies": [
+        4,
+        5
+      ],
+      "priority": "high",
+      "details": "1. Design interview session data model to track conversation state\n2. Implement initial question generation based on selected topic\n3. Develop adaptive follow-up question generation based on previous responses\n4. Create session persistence to allow resuming interviews\n5. Implement the 5-question interview structure\n6. Add session metadata (timestamps, completion status, etc.)",
+      "testStrategy": "Conduct complete interview sessions and verify that questions adapt appropriately based on previous answers. Test session persistence by interrupting and resuming interviews."
+    },
+    {
+      "id": 7,
+      "title": "Implement Real-Time Competency Scoring",
+      "description": "Create LLM-based evaluation system that scores responses against predefined competencies on a 0-10 scale.",
+      "status": "pending",
+      "dependencies": [
+        4,
+        6
+      ],
+      "priority": "high",
+      "details": "1. Design prompt templates for LLM-based scoring against competencies\n2. Implement scoring logic for each answer on 0-10 scale\n3. Create weighted aggregation of scores across competencies\n4. Store scoring data with interview responses\n5. Implement calibration mechanisms to ensure scoring consistency\n6. Add confidence metrics for scores generated",
+      "testStrategy": "Compare LLM-generated scores with expert human evaluations on sample responses to verify >85% agreement. Test scoring consistency across similar responses."
+    },
+    {
+      "id": 8,
+      "title": "Create Custom Pipe Function for Open WebUI",
+      "description": "Develop and integrate the custom Pipe Function that handles the interview logic within Open WebUI.",
+      "status": "pending",
+      "dependencies": [
+        5,
+        6,
+        7
+      ],
+      "priority": "medium",
+      "details": "1. Create Pipe Function structure compatible with Open WebUI\n2. Implement interview flow control logic\n3. Integrate RAG capabilities within the function\n4. Add scoring logic to the pipeline\n5. Implement session management\n6. Handle error cases and edge conditions\n7. Optimize for performance",
+      "testStrategy": "Test the Pipe Function with various user inputs, verifying correct flow control, question generation, and scoring. Ensure it properly integrates with Open WebUI."
+    },
+    {
+      "id": 9,
+      "title": "Develop Scoring Reports and Visualization",
+      "description": "Create interface for displaying competency scores and performance metrics to educators.",
+      "status": "pending",
+      "dependencies": [
+        7,
+        8
+      ],
+      "priority": "medium",
+      "details": "1. Design scoring report data structure\n2. Implement visualization components for competency scores\n3. Create summary statistics for interview performance\n4. Add detailed view of individual question responses and scores\n5. Implement export functionality for reports\n6. Design educator dashboard for reviewing multiple assessments",
+      "testStrategy": "Test report generation with sample interview data, verify all metrics are correctly calculated and displayed. Test export functionality and dashboard filtering."
+    },
+    {
+      "id": 10,
+      "title": "Implement User Management and System Configuration",
+      "description": "Create administrative interfaces for managing users, roles, and system settings.",
+      "status": "pending",
+      "dependencies": [
+        9
+      ],
+      "priority": "low",
+      "details": "1. Implement user roles (Students/Residents, Educators, Administrators)\n2. Create user management interface\n3. Implement system configuration settings\n4. Add document collection management for different domains\n5. Create backup and restore functionality\n6. Implement usage analytics and system monitoring\n7. Add documentation for administrators",
+      "testStrategy": "Test user creation, role assignment, and permission enforcement. Verify configuration changes are properly saved and applied. Test backup and restore functionality with sample data."
+    }
+  ],
+  "metadata": {
+    "projectName": "ClinicQuizzer",
+    "totalTasks": 10,
+    "sourceFile": "scripts/project_prd.txt",
+    "generatedAt": "2023-05-15"
+  }
+}

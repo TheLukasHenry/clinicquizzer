@@ -1,0 +1,16 @@
+# Task ID: 3
+# Title: Develop Document Processing Pipeline
+# Status: done
+# Dependencies: 2
+# Priority: high
+# Description: Create functionality for uploading, chunking, and embedding clinical documents into the knowledge base.
+# Details:
+1. Implement document upload interface
+2. Create document chunking logic (consider optimal chunk size for RAG)
+3. Process documents through the embedding pipeline
+4. Store chunks and embeddings in ChromaDB
+5. Implement document management features (list, delete, update)
+6. Add validation for document types and formats
+
+# Test Strategy:
+Upload various clinical document formats and verify proper chunking, embedding, and storage. Test with documents of different sizes up to the 20MB limit.
